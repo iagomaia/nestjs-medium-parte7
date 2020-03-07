@@ -27,6 +27,7 @@ services:
     environment:
       POSTGRES_USER: pguser
       POSTGRES_PASSWORD: pgpassword
+      POSTGRES_DB: nestjs
 
   adminer:
     image: adminer
