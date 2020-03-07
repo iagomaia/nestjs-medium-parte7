@@ -1,6 +1,21 @@
 version: '3'
 
 services:
+  api:
+    build:
+      context: .
+      dockerfile: api.Dockerfile
+    ports:
+      - '3000:3000'
+    container_name: api
+    restart: always
+    volumes:
+      - api-logs:/usr/src/node-api/logs:rw
+    environment:
+      - NODE_ENV=development
+    depends_on:
+      - pgsql
+
   pgsql:
     image: postgres:alpine
     ports:
